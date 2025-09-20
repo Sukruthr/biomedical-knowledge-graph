@@ -11,15 +11,45 @@ A containerized biomedical knowledge graph containing **126,416+ nodes** and **3
 - 8GB+ RAM (16GB+ recommended)
 - 20GB+ free disk space
 
-### One-Command Setup
+
+## Setup Options
+
+open the reppo
 ```bash
-# Clone and setup
-git clone <repository-url>
 cd knowledge_graph
 chmod +x biomedical-kg.sh
-./biomedical-kg.sh
 ```
-Choose option 1 (Load from dump) for fastest setup (~5 minutes).
+
+### Option 1: Load from Dump (Recommended)
+
+
+Fast setup using pre-built database dump:
+
+```bash
+./biomedical-kg.sh load-dump
+# ~5-10 minutes
+```
+
+### Option 2: Build from Scratch
+Complete build from source data:
+
+```bash
+./biomedical-kg.sh build-scratch
+# ~60min
+```
+or
+```bash
+# Start containers
+docker compose up -d
+
+# Run complete build pipeline
+docker exec biomedical-knowledge-graph python /app/kg_scripts/build_complete_biomedical_kg.py
+
+# Monitor progress
+docker logs -f biomedical-knowledge-graph
+```
+
+**Note**: Fresh builds download external data and take 30-60 minutes. 
 
 ## What's Included
 
@@ -142,36 +172,6 @@ Scripts automatically download from:
 - **LLM Evaluation Data**: [idekerlab/llm_evaluation_for_gene_set_interpretation](https://github.com/idekerlab/llm_evaluation_for_gene_set_interpretation)
 - **Talisman Genesets**: [monarch-initiative/talisman-paper](https://github.com/monarch-initiative/talisman-paper)
 
-## Setup Options
-
-### Option 1: Load from Dump (Recommended)
-Fast setup using pre-built database dump:
-
-```bash
-./biomedical-kg.sh load-dump
-# ~5-10 minutes
-```
-
-### Option 2: Build from Scratch
-Complete build from source data:
-
-```bash
-./biomedical-kg.sh build-scratch
-# ~60min
-```
-or
-```bash
-# Start containers
-docker compose up -d
-
-# Run complete build pipeline
-docker exec biomedical-knowledge-graph python /app/kg_scripts/build_complete_biomedical_kg.py
-
-# Monitor progress
-docker logs -f biomedical-knowledge-graph
-```
-
-**Note**: Fresh builds download external data and take 30-60 minutes.
 
 ## Example Queries
 
