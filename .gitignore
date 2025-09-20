@@ -1,0 +1,19 @@
+# Logs
+kg_scripts/logs/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Neo4j data
+*.dump
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
