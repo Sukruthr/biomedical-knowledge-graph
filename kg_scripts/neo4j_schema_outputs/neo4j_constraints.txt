@@ -1,0 +1,10 @@
+id, name, type, entityType, labelsOrTypes, properties, ownedIndex, propertyType
+27, "curated_geneset_id_unique", "UNIQUENESS", "NODE", ["CuratedGeneset"], ["geneset_id"], "curated_geneset_id_unique", NULL
+11, "disease_name_unique", "UNIQUENESS", "NODE", ["Disease"], ["name"], "disease_name_unique", NULL
+15, "drug_name_unique", "UNIQUENESS", "NODE", ["Drug"], ["name"], "drug_name_unique", NULL
+23, "functional_module_name_unique", "UNIQUENESS", "NODE", ["FunctionalModule"], ["name"], "functional_module_name_unique", NULL
+29, "geneset_collection_id_unique", "UNIQUENESS", "NODE", ["GenesetCollection"], ["collection_id"], "geneset_collection_id_unique", NULL
+19, "module_id_unique", "UNIQUENESS", "NODE", ["FunctionalModule"], ["cluster_id"], "module_id_unique", NULL
+25, "pathway_module_nest_id_unique", "UNIQUENESS", "NODE", ["PathwayModule"], ["nest_id"], "pathway_module_nest_id_unique", NULL
+17, "study_geo_unique", "UNIQUENESS", "NODE", ["Study"], ["geo_id"], "study_geo_unique", NULL
+13, "virus_name_unique", "UNIQUENESS", "NODE", ["Virus"], ["name"], "virus_name_unique", NULL

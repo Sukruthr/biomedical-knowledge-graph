@@ -1,0 +1,245 @@
+{
+  "timestamp": "2025-09-08T02:33:20.084798",
+  "nodes": {
+    "total_nodes": 96416,
+    "by_label": [
+      {
+        "label": "GOTerm",
+        "count": 47658
+      },
+      {
+        "label": "Gene",
+        "count": 42238
+      },
+      {
+        "label": "AltGOMapping",
+        "count": 3646
+      },
+      {
+        "label": "FunctionalModule",
+        "count": 2339
+      },
+      {
+        "label": "Disease",
+        "count": 163
+      },
+      {
+        "label": "Drug",
+        "count": 132
+      },
+      {
+        "label": "PathwayModule",
+        "count": 131
+      },
+      {
+        "label": "CuratedGeneset",
+        "count": 72
+      },
+      {
+        "label": "Virus",
+        "count": 34
+      },
+      {
+        "label": "GenesetCollection",
+        "count": 3
+      }
+    ],
+    "go_namespaces": [
+      {
+        "namespace": "biological_process",
+        "count": 30616
+      },
+      {
+        "namespace": "molecular_function",
+        "count": 12546
+      },
+      {
+        "namespace": "cellular_component",
+        "count": 4496
+      }
+    ]
+  },
+  "relationships": {
+    "total_relationships": 3635019,
+    "by_type": [
+      {
+        "type": "ANNOTATED_WITH",
+        "count": 2746661
+      },
+      {
+        "type": "PERTURBED_BY",
+        "count": 234248
+      },
+      {
+        "type": "ASSOCIATED_WITH_DISEASE",
+        "count": 134825
+      },
+      {
+        "type": "INFECTED_BY",
+        "count": 128009
+      },
+      {
+        "type": "COLLAPSED_HIERARCHY",
+        "count": 90507
+      },
+      {
+        "type": "OCCURS_IN",
+        "count": 73886
+      },
+      {
+        "type": "IS_A",
+        "count": 68218
+      },
+      {
+        "type": "ENABLED_BY",
+        "count": 58130
+      },
+      {
+        "type": "BELONGS_TO_MODULE",
+        "count": 36235
+      },
+      {
+        "type": "HOSTS_FUNCTION",
+        "count": 25452
+      },
+      {
+        "type": "PART_OF",
+        "count": 10011
+      },
+      {
+        "type": "CURATED_MEMBER_OF",
+        "count": 8228
+      },
+      {
+        "type": "MEMBER_OF_PATHWAY",
+        "count": 3742
+      },
+      {
+        "type": "MAPS_TO",
+        "count": 3646
+      },
+      {
+        "type": "CONTAINS",
+        "count": 3231
+      },
+      {
+        "type": "REGULATES",
+        "count": 3090
+      },
+      {
+        "type": "NEGATIVELY_REGULATES",
+        "count": 2688
+      },
+      {
+        "type": "POSITIVELY_REGULATES",
+        "count": 2678
+      },
+      {
+        "type": "ENRICHES_MODULE",
+        "count": 1462
+      },
+      {
+        "type": "PART_OF_COLLECTION",
+        "count": 72
+      }
+    ]
+  },
+  "connectivity": {
+    "connectivity_by_label": [
+      {
+        "label": "Virus",
+        "nodes": 34,
+        "total_connections": 128009,
+        "avg_degree": 3764.970588235294
+      },
+      {
+        "label": "Drug",
+        "nodes": 132,
+        "total_connections": 234248,
+        "avg_degree": 1774.6060606060605
+      },
+      {
+        "label": "Disease",
+        "nodes": 163,
+        "total_connections": 134825,
+        "avg_degree": 827.1472392638037
+      },
+      {
+        "label": "CuratedGeneset",
+        "nodes": 72,
+        "total_connections": 9762,
+        "avg_degree": 135.58333333333334
+      },
+      {
+        "label": "GOTerm",
+        "nodes": 42900,
+        "total_connections": 3413165,
+        "avg_degree": 79.56095571095571
+      },
+      {
+        "label": "Gene",
+        "nodes": 42238,
+        "total_connections": 3291948,
+        "avg_degree": 77.93806524930157
+      },
+      {
+        "label": "PathwayModule",
+        "nodes": 131,
+        "total_connections": 3742,
+        "avg_degree": 28.564885496183205
+      },
+      {
+        "label": "GenesetCollection",
+        "nodes": 3,
+        "total_connections": 72,
+        "avg_degree": 24.0
+      },
+      {
+        "label": "FunctionalModule",
+        "nodes": 2339,
+        "total_connections": 50621,
+        "avg_degree": 21.64215476699444
+      },
+      {
+        "label": "AltGOMapping",
+        "nodes": 3646,
+        "total_connections": 3646,
+        "avg_degree": 1.0
+      }
+    ],
+    "cross_namespace_connections": [
+      {
+        "rel_type": "OCCURS_IN",
+        "count": 73886
+      },
+      {
+        "rel_type": "ENABLED_BY",
+        "count": 58130
+      },
+      {
+        "rel_type": "HOSTS_FUNCTION",
+        "count": 25452
+      }
+    ]
+  },
+  "quality": {
+    "orphaned_nodes": [
+      {
+        "label": "GOTerm",
+        "orphan_count": 4758
+      }
+    ],
+    "multi_namespace_genes": [
+      {
+        "namespace_count": 3,
+        "gene_count": 16845
+      },
+      {
+        "namespace_count": 2,
+        "gene_count": 1902
+      }
+    ],
+    "multi_modal_genes": 15276,
+    "total_genes": 42238
+  }
+}

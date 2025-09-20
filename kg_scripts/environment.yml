@@ -1,0 +1,22 @@
+name: knowledge_graph
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - neo4j-python-driver
+  - networkx
+  - pandas
+  - numpy
+  - requests
+  - beautifulsoup4
+  - pyyaml
+  - matplotlib
+  - seaborn
+  - sqlite
+  - pip:
+    - py2neo
+    - neo4j-graphrag
+    - pydantic
+    - tenacity

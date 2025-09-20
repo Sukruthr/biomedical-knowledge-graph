@@ -1,0 +1,81 @@
+services:
+  biomedical-kg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biomedical-knowledge-graph
+    working_dir: /app/data
+    ports:
+      - "7475:7474"  # Neo4j Browser
+      - "7688:7687"  # Bolt protocol
+    environment:
+      # Neo4j Authentication
+      - NEO4J_AUTH=neo4j/password
+
+      # Memory Configuration (optimized for systems with 8-16GB RAM)
+      - NEO4J_dbms_memory_heap_initial__size=4G
+      - NEO4J_dbms_memory_heap_max__size=4G
+      - NEO4J_dbms_memory_pagecache_size=4G
+
+      # Plugin Configuration
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,gds.*
+      - NEO4J_dbms_security_procedures_allowlist=apoc.*,gds.*
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+
+      # Network Configuration
+      - NEO4J_dbms_default__listen__address=0.0.0.0
+      - NEO4J_dbms_connector_bolt_listen__address=0.0.0.0:7687
+      - NEO4J_dbms_connector_http_listen__address=0.0.0.0:7474
+
+      # Enable APOC features
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+
+      # Disable initial password change requirement
+      - NEO4J_dbms_security_auth__minimum__password__length=8
+
+      # Accept license for evaluation (required for Enterprise Edition)
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=eval
+
+    volumes:
+      # Data persistence
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_conf:/conf
+
+      # Import directory for data loading
+      - ./kg_scripts/backups:/var/lib/neo4j/import
+
+      # Application scripts (writable for data downloads)
+      - ./kg_scripts:/app/kg_scripts
+
+      # Downloaded datasets volume
+      - kg_datasets:/app/data
+
+    networks:
+      - kg_network
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7474/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+
+volumes:
+  neo4j_data:
+    driver: local
+  neo4j_logs:
+    driver: local
+  neo4j_conf:
+    driver: local
+  kg_datasets:
+    driver: local
+
+networks:
+  kg_network:
+    driver: bridge
