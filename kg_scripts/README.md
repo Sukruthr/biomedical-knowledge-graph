@@ -4,7 +4,7 @@ Complete pipeline for building a comprehensive biomedical knowledge graph with 9
 
 ## Prerequisites
 
-- **Neo4j Database**: Running locally on `localhost:7687`
+- **Neo4j Database**: Running locally on `http://localhost:7474/browser/` or `localhost:7687` 
 - **Python**: 3.10 or higher
 - **Data Sources**: External repositories (see Data Sources section)
 
@@ -38,7 +38,7 @@ cypher-shell -u neo4j -p neo4j
 ALTER USER neo4j SET PASSWORD 'password';
 ```
 
-**Note**: Default configuration uses `bolt://localhost:7687` with username `neo4j` and password `password`. Modify `config/neo4j_config.py` if needed.
+**Note**: Default configuration uses `http://localhost:7474/browser/` or `bolt://localhost:7687` with username `neo4j` and password `password`. Modify `config/neo4j_config.py` if needed.
 
 ### 3. Data Sources
 

@@ -22,12 +22,21 @@ else
     echo " Data directory: $DATA_DIR"
 fi
 
-# 2. Ensure data directory exists and navigate to it
+# 2. Clean up logs folder if it exists
+LOGS_DIR="$SCRIPT_DIR/logs"
+if [ -d "$LOGS_DIR" ]; then
+    echo " Found logs directory: $LOGS_DIR"
+    echo " Removing logs directory..."
+    rm -rf "$LOGS_DIR"
+    echo " Logs directory removed."
+fi
+
+# 3. Ensure data directory exists and navigate to it
 mkdir -p "$DATA_DIR"
 cd "$DATA_DIR"
 echo " Working from data directory: $(pwd)"
 
-# 3. Handle the 'llm_evaluation_for_gene_set_interpretation' data
+# 4. Handle the 'llm_evaluation_for_gene_set_interpretation' data
 LLM_DATA_DIR="llm_evaluation_for_gene_set_interpretation/data"
 
 # Check if the directory is missing or empty
@@ -51,7 +60,7 @@ else
     echo "'llm_evaluation_data' already exists. Skipping."
 fi
 
-# 3. Handle the 'talisman-paper' data
+# 5. Handle the 'talisman-paper' data
 TALISMAN_DATA_DIR="talisman-paper/genesets/human"
 
 # Check if the directory is missing or empty

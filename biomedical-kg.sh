@@ -5,6 +5,34 @@
 
 set -e
 
+# Function to clean up logs folder inside Docker container
+cleanup_logs() {
+    echo "Checking for logs folder in container..."
+
+    if ! docker ps | grep -q biomedical-knowledge-graph; then
+        echo " Container not running. Start it first with './biomedical-kg.sh start'"
+        return 1
+    fi
+
+    if docker exec biomedical-knowledge-graph test -d /app/kg_scripts/logs; then
+        echo " Found logs directory: /app/kg_scripts/logs"
+        read -p " Remove logs folder? (y/n): " response
+
+        case "$response" in
+            [yY]|[yY][eE][sS])
+                echo " Removing logs directory..."
+                docker exec biomedical-knowledge-graph rm -rf /app/kg_scripts/logs
+                echo " Logs directory removed."
+                ;;
+            *)
+                echo " Logs directory kept."
+                ;;
+        esac
+    else
+        echo " No logs directory found in container."
+    fi
+}
+
 # Function to wait for Neo4j
 wait_for_neo4j() {
     echo "Waiting for Neo4j to be ready..."
@@ -220,6 +248,10 @@ case "${1:-build}" in
         docker logs -f biomedical-knowledge-graph
         ;;
 
+    "cleanup-logs")
+        cleanup_logs
+        ;;
+
     "create-dump")
         echo " Creating database dump..."
         if ! docker ps | grep -q biomedical-knowledge-graph; then
@@ -338,6 +370,7 @@ case "${1:-build}" in
         echo "  stop           - Stop containers"
         echo "  status         - Show status and data summary"
         echo "  logs           - Follow container logs"
+        echo "  cleanup-logs   - Remove logs folder from container"
         echo "  create-dump    - Create backup dump file"
         echo ""
         echo "Cleanup Commands:"

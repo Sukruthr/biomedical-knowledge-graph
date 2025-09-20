@@ -253,14 +253,6 @@ docker compose logs -f biomedical-kg
 docker compose exec biomedical-kg netstat -tlnp | grep 7687
 ```
 
-**Out of memory errors**
-```bash
-# Add swap space
-sudo fallocate -l 4G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-```
 
 ### Health Checks
 ```bash
@@ -273,25 +265,7 @@ docker compose logs biomedical-kg
 # Monitor resource usage
 docker stats
 
-# Verify setup
-./verify_setup.sh  # If available
 ```
-
-## Testing Fresh Setup
-
-To test the complete new-user experience:
-
-```bash
-# Simulate fresh machine (removes everything)
-./docker-commands.sh nuclear
-
-# Test build from scratch like a new user would
-./biomedical-kg.sh build-scratch
-
-```
-
-This ensures new users will have a smooth experience.
-
 
 ## Database Statistics
 

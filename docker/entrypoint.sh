@@ -28,7 +28,16 @@ needs_database_load() {
 
 # Function to download required datasets
 download_datasets() {
-    echo "📥 Downloading required datasets..."
+
+    # 2. Clean up logs folder if it exists
+    LOGS_DIR="/app/kg_scripts/logs"
+    if [ -d "$LOGS_DIR" ]; then
+        echo " Found logs directory: $LOGS_DIR"
+        echo " Removing logs directory..."
+        rm -rf "$LOGS_DIR"
+        echo " Logs directory removed."
+    fi
+        echo "Downloading required datasets..."
 
     # Create data directory with proper permissions
     mkdir -p /app/data
@@ -125,7 +134,7 @@ setup_database() {
 # Main execution flow
 main() {
     # Download required datasets first
-    echo "🔄 Checking and downloading required datasets..."
+    echo "Checking and downloading required datasets..."
     if ! download_datasets; then
         echo " Failed to download datasets, continuing anyway..."
     fi
