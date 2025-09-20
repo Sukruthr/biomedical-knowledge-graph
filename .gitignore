@@ -7,8 +7,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Neo4j data
+# Neo4j data and backups
 *.dump
+kg_scripts/backups/
 
 # IDE files
 .vscode/
