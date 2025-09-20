@@ -156,6 +156,11 @@ Fast setup using pre-built database dump:
 Complete build from source data:
 
 ```bash
+./biomedical-kg.sh build-scratch
+# ~60min
+```
+or
+```bash
 # Start containers
 docker compose up -d
 
