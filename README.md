@@ -135,7 +135,6 @@ kg_scripts/biomedical_kg_metrics.py           # Database statistics
 ```bash
 kg_scripts/config/neo4j_config.py             # Docker-compatible Neo4j config
 kg_scripts/environment.yml                    # Python environment
-kg_scripts/omics_schema_setup.py              # Database schema setup
 ```
 
 ### External Data Sources
